@@ -1,0 +1,7 @@
+<div class="home">
+  <h1 class="home__title">Welcome to Nice Gadgets store!</h1>
+  <app-slider></app-slider>
+  <app-slider-list *ngIf="brandNew.length > 0" [phones]="brandNew" title="Brand new models"></app-slider-list>
+  <app-categories [categories]="categories"></app-categories>
+  <app-slider-list *ngIf="hotPrice.length > 0" [phones]="hotPrice" title="Hot prices"></app-slider-list>
+</div>

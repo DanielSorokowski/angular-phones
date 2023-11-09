@@ -1,0 +1,11 @@
+<section class='favorites'>
+  <app-back-button></app-back-button>
+  <h1 class='favorites__header'>Favorites</h1>
+  <span class='favorites__count'>{{phonesService.favFromLocalStorage.length}} items</span>
+  <div class='favroties__cards'>
+    <ul class='products' *ngIf="phonesService.favFromLocalStorage.length > 0">
+      <app-phone-card *ngFor="let phone of phonesService.favFromLocalStorage" [phone]="phone"></app-phone-card>
+    </ul>
+    <h3 *ngIf="phonesService.favFromLocalStorage.length === 0" class='favroties__empty'>You dont have any favroties</h3>
+  </div>
+</section>

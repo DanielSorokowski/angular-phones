@@ -1,0 +1,63 @@
+<main>
+  <section class="sorter">
+    <div class="sorter__container">
+      <label class="sorter_label--select">Sort by</label>
+      <select
+        title="Items on page"
+        id="select"
+        class="sorter__items-selector"
+        defaultValue="newest"
+        [(ngModel)]="selectedSort"
+        (change)="handleSortChange()"
+      >
+        <option value='newest'>Newest</option>
+        <option value='alphabetically'>Alphabetically</option>
+        <option value='cheapest'>Cheapest</option>
+      </select>
+    </div>
+
+    <div class="sorter__container">
+      <label class="sorter_label--select">Items on page</label>
+      <select
+        title="Items on page"
+        id="select"
+        class="sorter__items-selector"
+        defaultValue="8"
+        [(ngModel)]="selectedLimit"
+        (change)="handleSortChange()"
+      >
+        <option value="4">4</option>
+        <option value="8">8</option>
+        <option value="16">16</option>
+        <option [value]="phones.length">All</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="products">
+    <app-phone-card *ngFor="let phone of currentPhones" [phone]="phone"></app-phone-card>
+  </section>
+
+  <div class="pagination">
+    <ul class="pagination__container" >
+      <li
+        class="pagination__item"
+        (click)="prevPage()"
+      >
+        <div className="arrow__left"><img src="../../../assets/arrow-left.png" alt="arrow left"></div>
+      </li>
+      <li *ngFor="let page of currentPages">
+        <button (click)="changePage(page)" class="pagination__item" [ngClass]="page === currentPage ? 'selected' : ''">
+          {{page + 1}}
+        </button>
+      </li>
+      <li
+        class="pagination__item"
+        (click)="nextPage()"
+      >
+        <div className="arrow__right"><img src="../../../assets/arrow-right.png" alt="arrow left"></div>
+      </li>
+    </ul>
+
+  </div>
+</main >

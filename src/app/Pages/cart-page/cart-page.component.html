@@ -1,0 +1,15 @@
+<section class='cart'>
+  <app-back-button></app-back-button>
+
+  <h1 class='cart__header'>Cart</h1>
+
+  <div class='cart__list' *ngIf="phonesService.cartFromLocalStorage.length > 0">
+    <app-cart-element *ngFor="let cart of phonesService.cartFromLocalStorage" [cart]="cart" (countChanged)="onCountChanged($event)"></app-cart-element>
+  </div>
+
+  <h3 class='cart__empty' *ngIf="phonesService.cartFromLocalStorage.length === 0">Cart is empty</h3>
+
+
+  <app-cart-finalization [totalPrice]="totalPrice"></app-cart-finalization>
+</section>
+

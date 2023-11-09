@@ -1,0 +1,51 @@
+@import "../../Helpers/variables";
+
+.cart {
+  padding: 20px;
+  display: grid;
+  gap: 30px;
+
+  align-self: flex-start;
+
+  &__header {
+    font-size: 32px;
+    font-weight: 800;
+  }
+
+  &__list {
+    display: grid;
+    align-self: flex-start;
+    gap: 15px;
+  }
+
+  &__empty {
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+    align-self: flex-start;
+    color: white;
+    background: $color-grey;
+  }
+}
+
+@media (min-width: 640px) {
+  .cart {
+    gap: 16px;
+
+    &__header {
+      font-size: 48px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .cart {
+    width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: 2fr 1fr;
+
+    &__header {
+      grid-column: 1 / 3;
+    }
+  }
+}
