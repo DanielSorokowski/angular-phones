@@ -1,0 +1,13 @@
+<section class='categories'>
+  <h2 class='categories__title'>Shop by category</h2>
+  <div class="categories__list">
+    <div class="categories__element" *ngFor="let category of categories">
+      <img [src]="category.image" alt="" class='categories__element-image'>
+      <a [routerLink]="category.to" class='categories__element-title'>
+        <h3>{{category.name}}</h3>
+      </a>
+      
+      <span class='categories__element-count'>{{category.count}} models</span>
+    </div>
+  </div>
+</section>

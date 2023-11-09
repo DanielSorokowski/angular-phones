@@ -1,0 +1,56 @@
+<header class="header" id="top">
+  <div class="header__container">
+    <a [routerLink]="['/home']" class="header__logo">
+      <img
+        class="header__logo-img"
+        src="https://raw.githubusercontent.com/fe-mar23-CodeCrushers/product_catalog/header/public/img/Logo.png"
+        alt="Nice Gadgets logo"
+      />
+    </a>
+
+    <nav class="nav">
+      <div class="nav__btns">
+        <button class="nav__burger nav__burger--open" (click)="openNavbar()">
+          <img 
+            [src]="burgerIcon"
+            alt="Close navigation menu"
+          />
+        </button>
+      </div>
+    
+      <div class="navbar" [ngClass]="isOpen ? 'navbar--open' : ''">
+        <ul class="navbar__list">
+          <li class="navbar__element" [ngClass]="currentUrl === '/home' ? 'navbar__element--active' : ''">
+            <a [routerLink]="['/home']" class="navbar__link">Home</a>
+          </li>
+          <li class="navbar__element" [ngClass]="currentUrl === '/phones' ? 'navbar__element--active' : ''">
+            <a [routerLink]="['/phones']" class="navbar__link">Phones</a>
+          </li>
+        </ul>
+    
+        <div class="nav-buttons">
+          <a routerLink="favorites" class="nav-buttons__element" [ngClass]="currentUrl === '/favorites' ? 'nav-buttons__element--active' : ''">
+            <div class="nav-buttons__cart">
+              <img
+                src="https://raw.githubusercontent.com/fe-mar23-CodeCrushers/product_catalog/header/public/img/Icons/Favourites%20(Heart%20Like).png"
+                alt="favorites icon"
+                class="nav-buttons__icon"
+              />
+              <span *ngIf="phonesService.favFromLocalStorage.length > 0" class="nav-buttons__value">{{phonesService.favFromLocalStorage.length}}</span>
+            </div>
+          </a>
+          <a routerLink="cart" class="nav-buttons__element" [ngClass]="currentUrl === '/cart' ? 'nav-buttons__element--active' : ''">
+            <div class="nav-buttons__cart">
+              <img
+                src="https://raw.githubusercontent.com/fe-mar23-CodeCrushers/product_catalog/header/public/img/Icons/Shopping%20bag%20(Cart).png"
+                alt="cart icon"
+                class="nav-buttons__icon"
+              />
+              <span *ngIf="phonesService.cartFromLocalStorage.length > 0" class="nav-buttons__value">{{phonesService.cartFromLocalStorage.length}}</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

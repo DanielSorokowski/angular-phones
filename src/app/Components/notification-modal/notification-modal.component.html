@@ -1,0 +1,9 @@
+<div class="notification" *ngIf="text.length > 0">
+  <div class='notification__container'>
+    <h2 class='notification__text'>{{text}}</h2>
+      <ng-container *ngIf="close && !confirmed">
+        <button class='notification__btn notification__btn--danger' (click)="handleCloseModal()" >No</button>
+        <button class='notification__btn' (click)="handleConfirmCheckOut()">Yes</button>
+      </ng-container>
+  </div>
+</div>

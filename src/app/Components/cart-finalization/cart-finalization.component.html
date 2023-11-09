@@ -1,0 +1,10 @@
+<div class='cart-finalization'>
+  <h2 class='cart-finalization__value'>
+    ${{totalPrice}}
+  </h2>
+  <button class='cart-finalization__btn' (click)="handleCheckOut()">
+    Checkout
+  </button>
+
+  <app-notification-modal *ngIf="showChild" (close)="showChild = false" [text]="notificationMsg"></app-notification-modal>
+</div>
